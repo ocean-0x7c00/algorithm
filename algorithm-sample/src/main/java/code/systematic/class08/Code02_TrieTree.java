@@ -168,6 +168,10 @@ public class Code02_TrieTree {
 	public static class Node2 {
 		public int pass;
 		public int end;
+
+		/**
+		 * 字符的ASCII码作为key
+		 */
 		public HashMap<Integer, Node2> nexts;
 
 		public Node2() {

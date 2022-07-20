@@ -60,4 +60,14 @@ public class Code01_CountOfRangeSum {
 		return ans;
 	}
 
+	public static void main(String[] args) {
+//        int[] arr = {1, 2, 3, 4};
+
+		int[] arr = {-2,  -5, 1};
+
+		int sum = countRangeSum(arr, -2, 2);
+		System.out.println();
+		System.out.println(sum);
+	}
+
 }
