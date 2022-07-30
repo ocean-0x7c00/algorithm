@@ -24,7 +24,35 @@ public class TreeNode {
      * @return
      */
     public static TreeNode creatTreeNode(int[] arr) {
-        return null;
+        Queue<Integer> data = new LinkedList<>();
+        for (int i = 0; i < arr.length; i++) {
+            data.offer(arr[i]);
+        }
+        TreeNode head = createNode(data.poll());
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(head);
+
+        TreeNode node = null;
+        while (!queue.isEmpty()) {
+            node = queue.poll();
+            node.left = createNode(data.poll());
+            node.right = createNode(data.poll());
+            if (node.left != null) {
+                queue.offer(node.left);
+            }
+            if (node.right != null) {
+                queue.offer(node.right);
+            }
+        }
+
+        return head;
+    }
+
+    private static TreeNode createNode(Integer value) {
+        if (value == null) {
+            return null;
+        }
+        return new TreeNode(value);
     }
 
 
@@ -220,5 +248,12 @@ public class TreeNode {
         head.left = preb(queue);
         head.right = preb(queue);
         return head;
+    }
+
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5, 6};
+        TreeNode node = TreeNode.creatTreeNode(arr);
+        System.out.println();
     }
 }
