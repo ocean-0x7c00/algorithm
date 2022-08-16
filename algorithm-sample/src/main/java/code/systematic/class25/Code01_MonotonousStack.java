@@ -40,7 +40,7 @@ public class Code01_MonotonousStack {
 		int[][] res = new int[arr.length][2];
 		Stack<List<Integer>> stack = new Stack<>();
 		for (int i = 0; i < arr.length; i++) { // i -> arr[i] 进栈
-			while (!stack.isEmpty() && arr[stack.peek().get(0)] > arr[i]) {
+			while (!stack.isEmpty() && arr[stack.peek().get(0)] >  arr[i]) {
 				List<Integer> popIs = stack.pop();
 				int leftLessIndex = stack.isEmpty() ? -1 : stack.peek().get(stack.peek().size() - 1);
 				for (Integer popi : popIs) {

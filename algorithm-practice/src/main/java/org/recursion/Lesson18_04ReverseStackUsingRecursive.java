@@ -6,7 +6,7 @@ import java.util.Stack;
  * 给定一个栈，请逆序这个栈
  * 不能申请额外的数据结构，只能使用递归函数
  */
-public class Lessson18_04ReverseStackUsingRecursive {
+public class Lesson18_04ReverseStackUsingRecursive {
 
     public static void reverse(Stack<Integer> stack) {
         int bottom = f(stack);
