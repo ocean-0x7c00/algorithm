@@ -11,6 +11,8 @@
     <modules>
         <module>algorithm-sample</module>
         <module>algorithm-practice</module>
+        <module>problems</module>
+        <module>common</module>
     </modules>
 
     <properties>

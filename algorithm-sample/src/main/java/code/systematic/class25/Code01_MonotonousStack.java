@@ -1,5 +1,6 @@
 package code.systematic.class25;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Stack;
@@ -40,7 +41,7 @@ public class Code01_MonotonousStack {
 		int[][] res = new int[arr.length][2];
 		Stack<List<Integer>> stack = new Stack<>();
 		for (int i = 0; i < arr.length; i++) { // i -> arr[i] 进栈
-			while (!stack.isEmpty() && arr[stack.peek().get(0)] >  arr[i]) {
+			while (!stack.isEmpty() && arr[stack.peek().get(0)] > arr[i]) {
 				List<Integer> popIs = stack.pop();
 				int leftLessIndex = stack.isEmpty() ? -1 : stack.peek().get(stack.peek().size() - 1);
 				for (Integer popi : popIs) {
@@ -64,6 +65,48 @@ public class Code01_MonotonousStack {
 				res[popi][1] = -1;
 			}
 		}
+		return res;
+	}
+
+	public static int[][] getNearLess1(int[] arr) {
+		if (arr == null || arr.length == 0) {
+			return null;
+		}
+
+		int N = arr.length;
+		int[][] res = new int[N][2];
+		Stack<LinkedList<Integer>> stack = new Stack<>();
+
+		for (int i = 0; i < arr.length; i++) {
+			while (!stack.isEmpty() && arr[stack.peek().peekLast()] > arr[i]) {
+				LinkedList<Integer> popi = stack.pop();
+				int leftIndex = stack.isEmpty() ? -1 : stack.peek().peekLast();
+				for (Integer j : popi) {
+					res[j][0] = leftIndex;
+					res[j][1] = i;
+				}
+
+			}
+
+			if (!stack.isEmpty() && arr[stack.peek().peekLast()] == arr[i]) {
+				stack.peek().addLast(i);
+			} else {
+				LinkedList<Integer> list = new LinkedList<>();
+				list.add(i);
+				stack.push(list);
+			}
+
+		}
+
+		while (!stack.isEmpty()) {
+			LinkedList<Integer> popi = stack.pop();
+			int leftIndex = stack.isEmpty() ? -1 : stack.peek().peekLast();
+			for (Integer j : popi) {
+				res[j][0] = leftIndex;
+				res[j][1] = -1;
+			}
+		}
+
 		return res;
 	}
 
@@ -149,11 +192,11 @@ public class Code01_MonotonousStack {
 		for (int i = 0; i < testTimes; i++) {
 			int[] arr1 = getRandomArrayNoRepeat(size);
 			int[] arr2 = getRandomArray(size, max);
-			if (!isEqual(getNearLessNoRepeat(arr1), rightWay(arr1))) {
-				System.out.println("Oops!");
-				printArray(arr1);
-				break;
-			}
+//			if (!isEqual(getNearLessNoRepeat(arr1), rightWay(arr1))) {
+//				System.out.println("Oops!");
+//				printArray(arr1);
+//				break;
+//			}
 			if (!isEqual(getNearLess(arr2), rightWay(arr2))) {
 				System.out.println("Oops!");
 				printArray(arr2);
