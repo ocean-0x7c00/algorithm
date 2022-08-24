@@ -75,7 +75,7 @@ public class QuickSort {
         swap(arr, moreL, R);
 
 
-        return new int[]{lessR + 1, moreL };
+        return new int[]{lessR + 1, moreL};
     }
 
 
