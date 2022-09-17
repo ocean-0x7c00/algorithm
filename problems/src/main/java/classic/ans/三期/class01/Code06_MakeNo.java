@@ -1,5 +1,7 @@
 package classic.ans.三期.class01;
 
+import classic.problem.三期.classic01.P05_MakeNo;
+
 public class Code06_MakeNo {
 	
 	// 生成长度为size的达标数组
@@ -58,7 +60,9 @@ public class Code06_MakeNo {
 		
 		System.out.println(isValid(makeNo(1042)));
 		System.out.println(isValid(makeNo(2981)));
-		
+		System.out.println(isValid(P05_MakeNo.makeNo(1042)));
+		System.out.println(isValid(P05_MakeNo.makeNo(2981)));
+
 
 	}
 

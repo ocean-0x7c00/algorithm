@@ -1,5 +1,7 @@
 package classic.ans.三期.class01;
 
+import classic.problem.三期.classic01.P04_MaxOneBorderSize;
+
 public class Code05_MaxOneBorderSize {
 
 	public static void setBorderMap(int[][] m, int[][] right, int[][] down) {
@@ -80,5 +82,7 @@ public class Code05_MaxOneBorderSize {
 		int[][] matrix = generateRandom01Matrix(7, 8);
 		printMatrix(matrix);
 		System.out.println(getMaxSize(matrix));
+		System.out.println("--------------------------");
+		System.out.println(P04_MaxOneBorderSize.getMaxSize(matrix));
 	}
 }
