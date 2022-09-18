@@ -43,21 +43,28 @@ public class Code05_TrappingRainWaterII {
 			max = Math.max(max, cur.value);
 			int r = cur.row;
 			int c = cur.col;
+			//上
 			if (r > 0 && !isEnter[r - 1][c]) { // 如果有上面的位置并且上面位置没进过堆
 				water += Math.max(0, max - heightMap[r - 1][c]);
 				isEnter[r - 1][c] = true;
 				heap.add(new Node(heightMap[r - 1][c], r - 1, c));
 			}
+
+			//下
 			if (r < N - 1 && !isEnter[r + 1][c]) {
 				water += Math.max(0, max - heightMap[r + 1][c]);
 				isEnter[r + 1][c] = true;
 				heap.add(new Node(heightMap[r + 1][c], r + 1, c));
 			}
+
+			//左
 			if (c > 0 && !isEnter[r][c - 1]) {
 				water += Math.max(0, max - heightMap[r][c - 1]);
 				isEnter[r][c - 1] = true;
 				heap.add(new Node(heightMap[r][c - 1], r, c - 1));
 			}
+
+			//右
 			if (c < M - 1 && !isEnter[r][c + 1]) {
 				water += Math.max(0, max - heightMap[r][c + 1]);
 				isEnter[r][c + 1] = true;

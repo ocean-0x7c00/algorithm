@@ -1,5 +1,7 @@
 package classic.ans.三期.class02;
 
+import classic.problem.三期.classic02.P01_FindNumInSortedMatrix;
+
 public class Code01_FindNumInSortedMatrix {
 
 	public static boolean isContains(int[][] matrix, int K) {
@@ -29,6 +31,7 @@ public class Code01_FindNumInSortedMatrix {
 		};
 		int K = 233;
 		System.out.println(isContains(matrix, K));
+		System.out.println(P01_FindNumInSortedMatrix.isContains(matrix, K));
 	}
 
 }
