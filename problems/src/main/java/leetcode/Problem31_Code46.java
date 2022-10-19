@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -16,13 +17,25 @@ public class Problem31_Code46 {
             ans.add(cur);
 
         } else {
+
+            HashSet<Integer> set = new HashSet<>();
             for (int j = index; j < arr.length; j++) {
-                swap(arr, j, index);
-                process(arr, index + 1, ans);
-                swap(arr, j, index);
+                if (set.contains(arr[j])) {
+                    set.add(arr[j]);
+                    swap(arr, j, index);
+                    process(arr, index + 1, ans);
+                    swap(arr, j, index);
+                }
             }
 
         }
+    }
+
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+
+        process(nums, 0, ans);
+        return ans;
     }
 
     public static void swap(int[] arr, int i, int j) {
@@ -36,10 +49,5 @@ public class Problem31_Code46 {
         System.out.println();
     }
 
-    public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> ans = new ArrayList<>();
 
-        process(nums, 0, ans);
-        return ans;
-    }
 }
